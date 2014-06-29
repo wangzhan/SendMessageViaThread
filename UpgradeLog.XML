@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="SendMessageViaThread">
+</Property><Property Name="Solution File" Value="D:\DemoProject\SendMessageViaThread\SendMessageViaThread.sln">
+</Property><Property Name="Date" Value="2014年5月6日">
+</Property><Property Name="Time" Value="17:31">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="SendMessageViaThread.sln" Description="File successfully backed up as D:\DemoProject\SendMessageViaThread\SendMessageViaThread.sln.old">
+</Event><Event ErrorLevel="0" Project="SendMessageViaThread" Source="SendMessageViaThread\SendMessageViaThread.vcproj" Description="Converting project file 'D:\DemoProject\SendMessageViaThread\SendMessageViaThread\SendMessageViaThread.vcproj'.">
+</Event><Event ErrorLevel="1" Project="SendMessageViaThread" Source="SendMessageViaThread\SendMessageViaThread.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="SendMessageViaThread" Source="SendMessageViaThread\SendMessageViaThread.vcproj" Description="Done converting to new project file 'D:\DemoProject\SendMessageViaThread\SendMessageViaThread\SendMessageViaThread.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="SendMessageViaThread" Source="SendMessageViaThread\SendMessageViaThread.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="SendMessageViaThread.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="SendMessageViaThread.sln" Description="Converted">
+</Event></UpgradeLog>

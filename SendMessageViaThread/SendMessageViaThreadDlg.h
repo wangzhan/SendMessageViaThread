@@ -34,7 +34,6 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
-public:
     afx_msg void OnBnClickedCancel();
     afx_msg void OnBnClickedButton1();
     LRESULT OnSend(WPARAM wParam, LPARAM lParam);
@@ -42,4 +41,10 @@ public:
     static UINT __cdecl ThreadFunc(LPVOID pParam);
 
     afx_msg void OnBnClickedButton2();
+	afx_msg void OnBnClickedButton3();
+
+	int InvokeSend();
+
+	int SendMessageHandler(int i);
+	void PostMessageHandler(int i);
 };

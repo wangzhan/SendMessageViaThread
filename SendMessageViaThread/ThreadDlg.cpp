@@ -5,6 +5,7 @@
 #include "SendMessageViaThread.h"
 #include "ThreadDlg.h"
 #include "SendMessageViaThreadDlg.h"
+#include "TaskClosure.h"
 
 
 // CThreadDlg dialog
@@ -32,6 +33,8 @@ void CThreadDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CThreadDlg, CDialog)
     ON_MESSAGE(ACCEPT_MESSAGE1, OnAccept)
+	ON_MESSAGE(WM_POST_TASK_CLOSURE, OnPost)
+	ON_MESSAGE(WM_SEND_TASK_CLOSURE, OnSend)
     ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
@@ -57,4 +60,19 @@ void CThreadDlg::OnDestroy()
 {
     //delete this;
     __super::OnDestroy();
+}
+
+LRESULT CThreadDlg::OnPost(WPARAM wParam, LPARAM lParam)
+{
+	PostedTask *pTask = (PostedTask*)lParam;
+	(*pTask)();
+	delete pTask;
+	return 0;
+}
+
+LRESULT CThreadDlg::OnSend(WPARAM wParam, LPARAM lParam)
+{
+	SentTask *pTask = (SentTask*)lParam;
+	(*pTask)();
+	return 0;
 }

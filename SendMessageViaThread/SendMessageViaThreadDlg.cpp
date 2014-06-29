@@ -6,6 +6,7 @@
 #include "SendMessageViaThread.h"
 #include "SendMessageViaThreadDlg.h"
 #include "ThreadDlg.h"
+#include "TaskClosure.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -68,6 +69,7 @@ BEGIN_MESSAGE_MAP(CSendMessageViaThreadDlg, CDialog)
     ON_BN_CLICKED(IDC_BUTTON1, &CSendMessageViaThreadDlg::OnBnClickedButton1)
     ON_MESSAGE(SEND_MESSAGE1, OnSend)
     ON_BN_CLICKED(IDC_BUTTON2, &CSendMessageViaThreadDlg::OnBnClickedButton2)
+	ON_BN_CLICKED(IDC_BUTTON3, &CSendMessageViaThreadDlg::OnBnClickedButton3)
 END_MESSAGE_MAP()
 
 
@@ -196,5 +198,36 @@ void CSendMessageViaThreadDlg::OnBnClickedButton2()
         return;
     }
 
-    ::SendMessage(CThreadDlg::g_hwnd, ACCEPT_MESSAGE1, 0, LPARAM(GetSafeHwnd()));
+    //::SendMessage(CThreadDlg::g_hwnd, ACCEPT_MESSAGE1, 0, LPARAM(GetSafeHwnd()));
+	//::SendMessageTimeout(CThreadDlg::g_hwnd, ACCEPT_MESSAGE1, 0, LPARAM(GetSafeHwnd()),
+	//	SMTO_BLOCK | SMTO_NOTIMEOUTIFNOTHUNG, 0, 0);
+	//::SendMessageTimeout(CThreadDlg::g_hwnd, ACCEPT_MESSAGE1, 0, LPARAM(GetSafeHwnd()),
+	//	SMTO_NOTIMEOUTIFNOTHUNG, 0, 0);
+	::SendNotifyMessage(CThreadDlg::g_hwnd, ACCEPT_MESSAGE1, 0, LPARAM(GetSafeHwnd()));
+}
+
+
+void CSendMessageViaThreadDlg::OnBnClickedButton3()
+{
+	// TODO: Add your control notification handler code here
+	int j = InvokeSend();
+	PostTask(CThreadDlg::g_hwnd, &CSendMessageViaThreadDlg::PostMessageHandler, j);
+}
+
+int CSendMessageViaThreadDlg::InvokeSend()
+{
+	int i = 1;
+	SendTaskAndReturn4(CThreadDlg::g_hwnd, &CSendMessageViaThreadDlg::SendMessageHandler, i);
+	return 0;
+}
+
+int CSendMessageViaThreadDlg::SendMessageHandler(int i)
+{
+	//MessageBox(L"SendMessageHandler");
+	return i;
+}
+
+void CSendMessageViaThreadDlg::PostMessageHandler(int i)
+{
+	//MessageBox(L"PostMessageHandler");
 }

@@ -19,6 +19,9 @@ public:
     virtual BOOL OnInitDialog();
     void OnDestroy();
 
+	LRESULT OnPost(WPARAM wParam, LPARAM lParam);
+	LRESULT OnSend(WPARAM wParam, LPARAM lParam);
+
 // Dialog Data
 	enum { IDD = IDD_DIALOG1 };
 
